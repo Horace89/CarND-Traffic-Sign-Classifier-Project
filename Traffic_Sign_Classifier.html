@@ -16854,15 +16854,15 @@ POpd0QAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Define your architecture here.</span>
 <span class="c1">### Feel free to use as many code cells as needed.</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 
-<span class="n">EPOCHS</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">EPOCHS</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">256</span>
 
 <span class="kn">from</span> <span class="nn">tensorflow.contrib.layers</span> <span class="k">import</span> <span class="n">flatten</span>
 
@@ -16935,7 +16935,7 @@ POpd0QAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
@@ -16970,7 +16970,7 @@ sets imply underfitting. A high accuracy on the training set but low accuracy on
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Train your model here.</span>
@@ -16981,7 +16981,7 @@ sets imply underfitting. A high accuracy on the training set but low accuracy on
 <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="k">import</span> <span class="n">shuffle</span>
 
 
-<span class="n">rate</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">rate</span> <span class="o">=</span> <span class="mf">0.002</span>
 
 <span class="n">logits</span> <span class="o">=</span> <span class="n">LeNet</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">cross_entropy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">one_hot_y</span><span class="p">,</span> <span class="n">logits</span><span class="o">=</span><span class="n">logits</span><span class="p">)</span>
@@ -17020,7 +17020,7 @@ sets imply underfitting. A high accuracy on the training set but low accuracy on
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
@@ -17061,22 +17061,25 @@ sets imply underfitting. A high accuracy on the training set but low accuracy on
 <pre>Training...
 
 EPOCH 1 ...
-Validation Accuracy = 0.748
+Validation Accuracy = 0.819
 
 EPOCH 2 ...
-Validation Accuracy = 0.839
+Validation Accuracy = 0.914
 
 EPOCH 3 ...
-Validation Accuracy = 0.884
+Validation Accuracy = 0.921
 
 EPOCH 4 ...
-Validation Accuracy = 0.889
+Validation Accuracy = 0.948
 
 EPOCH 5 ...
-Validation Accuracy = 0.905
+Validation Accuracy = 0.949
 
 EPOCH 6 ...
-Validation Accuracy = 0.930
+Validation Accuracy = 0.946
+
+EPOCH 7 ...
+Validation Accuracy = 0.955
 
 The model is saved
 </pre>
@@ -17097,7 +17100,7 @@ The model is saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
@@ -17122,7 +17125,7 @@ The model is saved
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>INFO:tensorflow:Restoring parameters from ./leNet
-Test Accuracy = 0.896
+Test Accuracy = 0.909
 </pre>
 </div>
 </div>
@@ -17152,7 +17155,7 @@ Test Accuracy = 0.896
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Load the images and plot them here.</span>
@@ -17508,10 +17511,10 @@ GzUiIiIiIqKA4Y0aERERERFRwPBGjYiIiIiIKGB4o0ZERERERBQwvFEjIiIiIiIKmP8FqcglYLAQ
 <h3 id="Predict-the-Sign-Type-for-Each-Image">Predict the Sign Type for Each Image<a class="anchor-link" href="#Predict-the-Sign-Type-for-Each-Image">&#182;</a></h3>
 </div>
 </div>
-</div>X_new_images
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;signnames.csv&#39;</span><span class="p">)</span>
@@ -17528,7 +17531,7 @@ GzUiIiIiIqKA4Y0aERERERFRwPBGjYiIiIiIKGB4o0ZERERERBQwvFEjIiIiIiIKmP8FqcglYLAQ
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[57]:</div>
+<div class="prompt output_prompt">Out[80]:</div>
 
 
 
@@ -17784,7 +17787,7 @@ GzUiIiIiIqKA4Y0aERERERFRwPBGjYiIiIiIKGB4o0ZERERERBQwvFEjIiIiIiIKmP8FqcglYLAQ
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Run the predictions here and use the model to output the prediction for each image.</span>
@@ -17819,7 +17822,7 @@ for i in range(ncols):
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Calculate the accuracy for these 5 new images. </span>
@@ -17902,7 +17905,7 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[83]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Print out the top five softmax probabilities for the predictions on the German traffic sign images found on the web. </span>
@@ -17918,16 +17921,52 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 </div>
 </div>
 
-</div>#redundant with the next cell...
-with tf.Session() as sess:
-    saver.restore(sess, tf.train.latest_checkpoint('.'))  
-    predicted_logits = sess.run(logits, feed_dict={x: X_final_test})
-    predicted_labels = np.argmax(predicted_logits, axis=1)
-    for i in range(len(X_final_test)):
-        print("{} -> Prediction: {}".format(i, signs[predicted_labels[i]+1]))
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#redundant with the next cell...</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">saver</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">latest_checkpoint</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span>  
+    <span class="n">predicted_logits</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">X_final_test</span><span class="p">})</span>
+    <span class="n">predicted_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">predicted_logits</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_final_test</span><span class="p">)):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> -&gt; Prediction: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">signs</span><span class="p">[</span><span class="n">predicted_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>INFO:tensorflow:Restoring parameters from ./leNet
+0 -&gt; Prediction: Speed limit (50km/h)
+1 -&gt; Prediction: Pedestrians
+2 -&gt; Prediction: Wild animals crossing
+3 -&gt; Prediction: Slippery road
+4 -&gt; Prediction: End of speed limit (80km/h)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">SHOW_BEST</span> <span class="o">=</span> <span class="mi">5</span>
@@ -17955,39 +17994,39 @@ with tf.Session() as sess:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Speed limit (50km/h): 91.48%
-Speed limit (60km/h): 8.52%
-No passing for vehicles over 3.5 metric tons: 0.00%
+<pre>Speed limit (50km/h): 90.81%
+Speed limit (30km/h): 9.19%
+Speed limit (60km/h): 0.00%
+End of speed limit (80km/h): 0.00%
 Speed limit (80km/h): 0.00%
-Road work: 0.00%
 ---------------------------------------------------
 
-Pedestrians: 89.89%
-General caution: 10.05%
-Traffic signals: 0.06%
+Pedestrians: 95.18%
+General caution: 4.82%
+Right-of-way at the next intersection: 0.00%
+Traffic signals: 0.00%
 Road narrows on the right: 0.00%
-Right-of-way at the next intersection: 0.00%
 ---------------------------------------------------
 
-Wild animals crossing: 99.99%
-Double curve: 0.01%
-Speed limit (50km/h): 0.00%
-Right-of-way at the next intersection: 0.00%
-Speed limit (80km/h): 0.00%
----------------------------------------------------
-
-Slippery road: 99.99%
-Dangerous curve to the left: 0.01%
-No passing for vehicles over 3.5 metric tons: 0.00%
-Wild animals crossing: 0.00%
+Wild animals crossing: 100.00%
 Double curve: 0.00%
+Slippery road: 0.00%
+Speed limit (80km/h): 0.00%
+Beware of ice/snow: 0.00%
 ---------------------------------------------------
 
-End of speed limit (80km/h): 87.67%
-End of all speed and passing limits: 12.28%
-Speed limit (60km/h): 0.04%
+Slippery road: 99.88%
+Right-of-way at the next intersection: 0.10%
+Dangerous curve to the left: 0.02%
+No passing: 0.00%
+Vehicles over 3.5 metric tons prohibited: 0.00%
+---------------------------------------------------
+
+End of speed limit (80km/h): 99.89%
+End of all speed and passing limits: 0.11%
+Priority road: 0.00%
+Speed limit (30km/h): 0.00%
 End of no passing by vehicles over 3.5 metric tons: 0.00%
-End of no passing: 0.00%
 ---------------------------------------------------
 
 </pre>

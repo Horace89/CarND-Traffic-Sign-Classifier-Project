@@ -92,21 +92,29 @@ My final model consisted of the following layers:
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used my personnal iMac. I trained the model with 8 epochs, batch_size of 128, and learning rate of 0.001.
+To train the model, I used my personnal iMac.
+I trained the model with 7 epochs, batch_size of 256, and learning rate of 0.002.
 
-For the optimizer, I used softmax_cross_entropy_with_logits, tf.reduce_mean() and the AdamOptimizer.
+
+I first trained the model with 10 epochs (as shown in the course video). I noticed that after 6-7 epochs, though, the accuracy did not decrease a lot and was reaching a plateau. os I decided the training may be good enough at 7 epochs. The batch size of 256 was selected as it appears to be a good practice and managed to speed up the training compared to using 128.
+I kept the learning rate of 0.001 as it was shown in the LeNet lab.
+
+A learning rate of 0.002 was tried as it managed to speed up the learning with 7 epochs.
+
+For the optimizer, I used softmax_cross_entropy_with_logits, tf.reduce_mean() and the AdamOptimizer. I have note tried other variants.
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* validation set accuracy of 0.930
-* test set accuracy of 0.896
+* validation set accuracy of 0.955
+* test set accuracy of 0.909
 
 The well-known architecture LeNet classifier was chosen:
 * it is a famous historical architecture
 * it is known to be quite good on traffic sign recognition
 * the test set accuracy of 90+% with just 8 epochs, without data augmentation and sophisticated regularization method confirms this hypothesis.
 
+I did not meet unexpected difficulties, but saw quickly that training a deep learning network is highly empirical and iterative: I played a lot with changing the number of epochs and the learning rate. Training converged more slowly when a smaller learning rate was used, but a better accuracy could be achieved.
 
 ### Test a Model on New Images
 
@@ -122,6 +130,10 @@ Here are five German traffic signs that I found on the web:
 
 
 They are located in the [test_signs directory](https://github.com/Horace89/CarND-Traffic-Sign-Classifier-Project/tree/master/test_signs)
+
+These images may be difficult to classify as they appear to not be photographs but drawings. As the training set is done on real photos, the risk is that there will be some kind of "data mismatch" between the training set and this new set.
+On the other hand the quality of these pictures is good: they are not blurry, not distorted, and taken directly from the front side. So I think it will help the classification process.
+
 
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
@@ -145,7 +157,7 @@ You may look at the Ipython notebook for the detailed softmax probabilities.
 For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
 The model is always very sure about its prediction, with a prob above 85%.
-The only mistake it made is about the misclassification of "Speed limit 60" to "Speed limit 50". It may be due to the fact that there are not so many training examples.
+The only mistake it made is about the misclassification of "Speed limit 60" to "Speed limit 50". It may be due to the fact that there are not so many training examples
 
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)

@@ -101,3 +101,10 @@ ENV/
 .mypy_cache/
 
 .DS_Store
+
+traffic-signs-data.zip
+traffic-signs-data/
+
+#model checkpoints
+checkpoint
+leNet.*
